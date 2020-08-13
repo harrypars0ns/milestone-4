@@ -56,7 +56,13 @@ body {
     color: #000 !important;
 }
 
+.spacer {
+    height: 100px;
+}
 
+.get-product-image {
+    height: 500px;
+}
 
 @media (min-width: 1200px) {
   .container {

@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% load static %} {% block page_header %}
+<div class="container spacer">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %} 
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+        <h2>{{ product.name }}</h2>
+        <hr>
+        <p>{{ product.description }}</p>
+        <br>
+        <p>Made in {{ product.nation_of_origin }}</p>
+        <br>
+        <p>£{{ product.price }}</p>
+    </div>    
+        <div class="col-6">
+        <img
+          class="get-product-image"
+          src="{{ product.image.url }}"
+          alt="{{ product.name }}"
+        />
+    </div>
+  </div>
+</div>
+{% endblock %}
