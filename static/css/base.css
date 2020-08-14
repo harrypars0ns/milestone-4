@@ -23,14 +23,10 @@ body {
 
 
 .get-products-button {
-    background: black;
-    color: white;
+    background: #c2b280;
+    color: black;
     min-width: 260px;
-}
-
-.btn-black {
-    background: black;
-    color: white;
+    margin-top: 50px;
 }
 
 .get-products-button:hover,
@@ -39,8 +35,9 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    background: #cabc91;
+    color: black;
+    border: solid black 1px;;
 }
 
 .card-container {
@@ -61,7 +58,7 @@ body {
 }
 
 .get-product-image {
-    height: 500px;
+    width: 100%;
 }
 
 @media (min-width: 1200px) {

@@ -4,25 +4,50 @@
     <div class="col"></div>
   </div>
 </div>
-{% endblock %} 
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-6">
-        <h2>{{ product.name }}</h2>
-        <hr>
-        <p>{{ product.description }}</p>
-        <br>
-        <p>Made in {{ product.nation_of_origin }}</p>
-        <br>
-        <p>£{{ product.price }}</p>
-    </div>    
-        <div class="col-6">
-        <img
-          class="get-product-image"
-          src="{{ product.image.url }}"
-          alt="{{ product.name }}"
-        />
+    <div class="col-sm-12 col-md-6">
+      <img
+        class="get-product-image"
+        src="{{ product.image.url }}"
+        alt="{{ product.name }}"
+      />
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-sm-12 col-md-5">
+      <h2>{{ product.name }}</h2>
+      <hr />
+      <p>{{ product.description }}</p>
+      <br />
+      <p>Made in {{ product.nation_of_origin }}</p>
+      <br />
+      <p>£{{ product.price }}</p>
+      <br />
+      <form class="form" method="POST" action="{% url 'add_to_cart' product.id %}">
+        {% csrf_token %}
+        <div class="addcart_form row">
+          <div class="col-8 row mx-1">
+            <input
+              class="form-control quantity"
+              name="quantity"
+              type="number"
+              value="1"
+              min="1"
+              max="99"
+              data-item-id="{{ product.id }}"
+              id="id_qty_{{ product.id }}"
+            />
+          </div>
+          <div class="col-12">
+            <a
+              href=""
+              class="get-products-button btn btn-lg rounded-0 text-uppercase py-3 exo"
+              >Add to Cart</a
+            >
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

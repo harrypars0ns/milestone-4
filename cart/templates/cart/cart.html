@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+  <div class="row">
+    <div class="col-6">
+        <h2>Shopping Cart</h2>
+        <hr>
+    </div>    
+    <div class="col-6">
+        {% if cart_has_items %}
+        {% else %}
+            <h5>Your cart is empty would you like to carry on shopping?</h5>
+            <button type="button" class="btn btn-dark">Keep Shopping</button>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
