@@ -17,7 +17,10 @@
         <hr>
     </div>    
     <div class="col-6">
-        {% if cart_has_items %}
+        {% if cart_items %}
+            <div>
+                {{ cart_items }}
+            </div>
         {% else %}
             <h5>Your cart is empty would you like to carry on shopping?</h5>
             <button type="button" class="btn btn-dark">Keep Shopping</button>
