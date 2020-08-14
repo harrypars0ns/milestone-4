@@ -61,6 +61,10 @@ body {
     width: 100%;
 }
 
+.cart-product-image {
+    width: 70%;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;

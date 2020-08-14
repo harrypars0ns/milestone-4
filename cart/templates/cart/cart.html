@@ -1,31 +1,37 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
-{% block content %}
-    <div class="container">
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="container">
   <div class="row">
-    <div class="col-6">
-        <h2>Shopping Cart</h2>
-        <hr>
-    </div>    
-    <div class="col-6">
-        {% if cart_items %}
-            <div>
-                {{ cart_items }}
-            </div>
-        {% else %}
-            <h5>Your cart is empty would you like to carry on shopping?</h5>
-            <button type="button" class="btn btn-dark">Keep Shopping</button>
-        {% endif %}
+    <div class="col-12">
+      <h2>Shopping Cart</h2>
+      <hr />
     </div>
+  </div>
+  <div class="row my-1">
+    {% if cart_items %} {% for item in cart_items %}
+    <div class="col-4 my-1">
+      <img
+        class="cart-product-image"
+        src="{{ item.product.image.url }}"
+        alt="{{ item.product.name }}"
+      />
+    </div>
+    <div class="col-8">
+      <h2>{{ item.product.name }}</h2>
+      <hr />
+      <p>{{ item.product.description }}</p>
+      <br />
+      <p>Made in {{ item.product.nation_of_origin }}</p>
+      <br />
+      <p>Price: £{{ item.product.price }}</p>
+      <br />
+      <p>Quantity: {{ item.quantity }}</p>
+      <br>
+    </div>
+    <br />
+    {% endfor %} {% else %}
+    <h5>Your cart is empty would you like to carry on shopping?</h5>
+    <button type="button" class="btn btn-dark">Keep Shopping</button>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
