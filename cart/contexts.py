@@ -8,7 +8,7 @@ def cart_contents(request):
     cart_items = []
     total = 0
     product_count = 0
-    shipping = 3.99
+    shipping = 5
     cart = request.session.get('cart', {})
 
     for item_id, quantity in cart.items():
@@ -21,11 +21,14 @@ def cart_contents(request):
             'product': product,
         })
 
+    cart_plus_ship = shipping + total
+
     context = {
         'cart_items': cart_items,
         'total': total,
         'product_count': product_count,
         'shipping': shipping,
+        'cart_plus_ship': cart_plus_ship,
     }
 
     return context
