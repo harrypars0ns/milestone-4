@@ -65,8 +65,8 @@
                             <div>
                             <i class="fas fas fa-shopping-cart fa-lg"></i></div>
                                 <p class="my-0">
-                                    {% if cart_plus_ship %}
-                                        ${{ cart_plus_ship|floatformat:2 }}
+                                    {% if cart_items %}
+                                        £{{ cart_plus_ship|floatformat:2 }}
                                     {% else %}
                                         £0.00
                                     {% endif %}

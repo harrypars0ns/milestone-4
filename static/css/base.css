@@ -62,7 +62,24 @@ body {
 }
 
 .cart-product-image {
-    width: 70%;
+    width: 80%;
+}
+
+.edit-products-button {
+    background: #c2b280;
+    color: black;
+    
+}
+
+.edit-products-button:hover,
+.edit-products-button:active,
+.edit-products-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #cabc91;
+    color: black;
+    border: solid black 1px;;
 }
 
 @media (min-width: 1200px) {

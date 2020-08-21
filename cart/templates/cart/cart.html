@@ -19,12 +19,36 @@
       <h2>{{ item.product.name }}</h2>
       <hr />
       <p>{{ item.product.description }}</p>
-      <br />
       <p>Made in {{ item.product.nation_of_origin }}</p>
-      <br />
       <p>Price: £{{ item.product.price }}</p>
-      <br />
-      <p>Quantity: {{ item.quantity }}</p>
+      <p>Quantity:</p>
+      <form method="POST" class="quantity" action="{% url 'edit_cart' item.item_id %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-8">
+                <input
+                    class="form-control quantity"
+                    name="quantity"
+                    type="number"
+                    value="{{ item.quantity }}"
+                    min="0"
+                    max="99"
+                    data-item_id="{{ item.item_id }}"
+                    id="id_qty_{{ item.item_id }}"
+                    />
+            </div>
+            <div class="col-4">    
+                <input
+                    type="submit"
+                    class="edit-products-button btn btn-sm text-uppercase py-3 exo"
+                    value="Update Quantity"
+                    ></input>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}"> 
+            </div>
+        </div>              
+      </form>
+      <br>
+      <br>
       <br>
     </div>
     <br />
