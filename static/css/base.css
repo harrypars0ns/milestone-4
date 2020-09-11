@@ -82,6 +82,10 @@ body {
     border: solid black 1px;;
 }
 
+.checkout-product-image {
+    width: 100%;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
