@@ -5,7 +5,7 @@ html {
 body {
     height: calc(100vh - 164px);
 	font-family: "Exo 2", sans-serif;
-}
+    }
 
 .title-container{
     text-align: center;
