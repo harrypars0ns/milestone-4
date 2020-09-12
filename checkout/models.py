@@ -29,7 +29,7 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update car_plus_ship each time a line item is added,
+        Update cart_plus_ship each time a line item is added,
         accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate
@@ -51,7 +51,8 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     product = models.ForeignKey(Product, null=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+    lineitem_total = models.DecimalField(max_digits=6,
+                                         decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
 

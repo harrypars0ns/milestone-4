@@ -36,3 +36,12 @@
     border: 1px solid #000;
 }
 
+.checkout-product-image {
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+  .checkout-product-image {
+    width: 100%;
+}
+}

@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% load static %} {% block content %} {% block
+extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
+{% endblock %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Thank you</h2>
+      <hr />
+    </div>
+    <div class="col-12">
+      <p>Your order is on the way!</p>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="row my-1">
+      <button type="button" class="btn btn-dark">Keep Shopping</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
