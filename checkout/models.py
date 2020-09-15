@@ -31,14 +31,12 @@ class Order(models.Model):
     stripe_pid = models.CharField(max_length=254,
                                   null=False, blank=False, default='')
 
-
     def _generate_order_number(self):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
         """
-        Update cart_plus_ship each time a line item is added,
-        accounting for delivery costs.
+        Update cart_plus_ship each time a line item is added.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.cart_plus_ship = self.order_total
@@ -65,8 +63,8 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Change original save method and set the lineitem total
-        and updates total of the order.
+        Change save method, lineitem total
+        and update total of the order.
         """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
