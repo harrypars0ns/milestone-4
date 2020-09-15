@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 
 from .models import Order, OrderLineItem
+from profiles.models import UserProfile
 from products.models import Product
 
 import time
@@ -36,6 +37,24 @@ class StripeWH_Handler:
         for field, value in shipping.address.items():
             if value == '':
                 shipping.address[field] = None
+
+        # update info checkbox
+
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping.phone
+                profile.default_country = shipping.address.country
+                profile.default_postcode = shipping.address.postal_code
+                profile.default_town_or_city = shipping.address.city
+                profile.default_street_address1 = shipping.address.line1
+                profile.default_street_address2 = shipping.address.line2
+                profile.default_county = shipping.address.state
+                profile.save()
+
+
         order_exists = False
         order_attempt = 1
         while order_attempt <= 5:
@@ -68,6 +87,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping.name,
+                    user_profile=profile,
                     phone_number=shipping.phone,
                     country=shipping.address.country,
                     postcode=shipping.address.postal_code,
