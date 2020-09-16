@@ -5,7 +5,7 @@ from .models import Category, Product
 class ProductAdminForm(forms.ModelForm):
     class Meta:
         fields = ('name', 'category', 'description',
-                  'nation_of_origin', 'price', 'image_url',)
+                  'nation_of_origin', 'price', 'image',)
         model = Product
 
     def __init__(self, *args, **kwargs):

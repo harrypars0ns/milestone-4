@@ -11,10 +11,11 @@ def profile(request):
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-    
-    form = ProfileForm(instance=profile)
+    else:
+        form = ProfileForm(instance=profile)
+
     orders = profile.orders.all()
-    
+
     template = 'profiles/profile.html'
     context = {
         'form': form,
