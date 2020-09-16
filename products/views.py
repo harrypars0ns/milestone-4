@@ -19,6 +19,24 @@ def create_product(request):
     return render(request, template, context)
 
 
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        product_admin_form = ProductAdminForm(request.POST, request.FILES, instance=product)
+        if product_admin_form.is_valid:
+            product_admin_form.save()
+            return redirect(reverse('get_product', args=[product.id]))
+    else:
+        product_admin_form = ProductAdminForm(instance=product)
+
+    template = 'products/edit_product.html'
+    context = {
+        'product_admin_form': product_admin_form,
+        'product': product,
+    }
+    return render(request, template, context)
+
+
 def all_products(request):
     """ All products view """
 
