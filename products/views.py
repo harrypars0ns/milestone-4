@@ -1,7 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
+from .forms import ProductAdminForm
 
-# Create your views here.
+
+def create_product(request):
+    product_admin_form = ProductAdminForm()
+    template = 'products/create_product.html'
+    context = {
+        'product_admin_form': product_admin_form,
+    }
+    return render(request, template, context)
 
 
 def all_products(request):
