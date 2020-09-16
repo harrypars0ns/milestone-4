@@ -42,13 +42,36 @@
           <div class="col-12">
             <input
               type="submit"
-              class="get-products-button btn btn-lg rounded-0 text-uppercase py-3 exo"
+              class="btn btn-outline-black rounded-0 btn-lg"
               value="Add to Cart"
               ></input>
               <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </div>
           <div class="col-12">
-              <a href="{% url 'products' %}" class="get-products-button btn btn-lg rounded-0 text-uppercase py-3 exo">Back to Products</a>
+              <a href="{% url 'products' %}" class="btn btn-outline-black       rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+          </div>
+          <div class="col-12">
+            {% if request.user.is_superuser %}
+                <a href="{% url 'edit_product' product.id %}" class="btn 
+                            btn-outline-black rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="far fa-edit"></i>
+                    </span>
+                    <span class="text-uppercase">Edit</span>
+                </a>
+                <a href="{% url 'remove_product' product.id %}" class="btn 
+                            btn-outline-black rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="far fa-trash-alt"></i>
+                    </span>
+                    <span class="text-uppercase">Remove</span>
+                </a>
+            {% endif %}    
           </div>
         </div>
       </form>

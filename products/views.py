@@ -7,8 +7,8 @@ def create_product(request):
     if request.method == 'POST':
         product_admin_form = ProductAdminForm(request.POST, request.FILES)
         if product_admin_form.is_valid:
-            product_admin_form.save()
-            return redirect(reverse('create_product'))
+            the_product = product_admin_form.save()
+            return redirect(reverse('get_product', args=[the_product.id]))
     else:
         product_admin_form = ProductAdminForm()
 
@@ -22,7 +22,8 @@ def create_product(request):
 def edit_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        product_admin_form = ProductAdminForm(request.POST, request.FILES, instance=product)
+        product_admin_form = ProductAdminForm(request.POST,
+                                              request.FILES, instance=product)
         if product_admin_form.is_valid:
             product_admin_form.save()
             return redirect(reverse('get_product', args=[product.id]))
@@ -35,6 +36,12 @@ def edit_product(request, product_id):
         'product': product,
     }
     return render(request, template, context)
+
+
+def remove_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    return redirect(reverse('products'))
 
 
 def all_products(request):
