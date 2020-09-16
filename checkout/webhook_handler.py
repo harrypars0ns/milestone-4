@@ -46,14 +46,12 @@ class StripeWH_Handler:
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_phone_number = shipping.phone
-                profile.default_country = shipping.address.country
-                profile.default_postcode = shipping.address.postal_code
-                profile.default_town_or_city = shipping.address.city
                 profile.default_street_address1 = shipping.address.line1
                 profile.default_street_address2 = shipping.address.line2
-                profile.default_county = shipping.address.state
+                profile.default_town_or_city = shipping.address.city
+                profile.default_postcode = shipping.address.postal_code
+                profile.default_country = shipping.address.country
                 profile.save()
-
 
         order_exists = False
         order_attempt = 1
@@ -62,12 +60,11 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                     full_name__iexact=shipping.name,
                     phone_number__iexact=shipping.phone,
-                    country__iexact=shipping.address.country,
-                    postcode__iexact=shipping.address.postal_code,
-                    town_or_city__iexact=shipping.address.city,
                     street_address1__iexact=shipping.address.line1,
                     street_address2__iexact=shipping.address.line2,
-                    county__iexact=shipping.address.state,
+                    town_or_city__iexact=shipping.address.city,
+                    postcode__iexact=shipping.address.postal_code,
+                    country__iexact=shipping.address.country,
                     cart_plus_ship=cart_plus_ship,
                     original_cart=cart,
                     stripe_pid=pid,
@@ -89,12 +86,11 @@ class StripeWH_Handler:
                     full_name=shipping.name,
                     user_profile=profile,
                     phone_number=shipping.phone,
-                    country=shipping.address.country,
-                    postcode=shipping.address.postal_code,
-                    town_or_city=shipping.address.city,
                     street_address1=shipping.address.line1,
                     street_address2=shipping.address.line2,
-                    county=shipping.address.state,
+                    town_or_city=shipping.address.city,
+                    postcode=shipping.address.postal_code,
+                    country=shipping.address.country,
                     original_cart=cart,
                     stripe_pid=pid,
                 )
@@ -122,7 +118,7 @@ class StripeWH_Handler:
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
-                    status=500)
+                    status=400)
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)

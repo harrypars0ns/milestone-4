@@ -5,15 +5,23 @@ from django.dispatch import receiver
 
 from django_countries.fields import CountryField
 
+
 class UserProfile(models.Model):
-    """A Model for profiles allowing only one to be created per user"""
+    """A Model for profiles, allowing only one to be created per user"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, blank=True, null=True)
-    default_country = CountryField(blank_label='Country *', blank=True, null=True)
-    default_postcode = models.CharField(max_length=20, blank=True, null=True)
-    default_town_or_city = models.CharField(max_length=40, blank=True, null=True)
-    default_street_address1 = models.CharField(max_length=40, blank=True, null=True)
-    default_street_address2 = models.CharField(max_length=40, blank=True, null=True)
+    default_phone_number = models.CharField(max_length=20,
+                                            blank=True, null=True)
+    default_street_address1 = models.CharField(max_length=40,
+                                               blank=True, null=True)
+    default_street_address2 = models.CharField(max_length=40,
+                                               blank=True, null=True)
+    default_town_or_city = models.CharField(max_length=40,
+                                            blank=True, null=True)
+    default_postcode = models.CharField(max_length=20,
+                                        blank=True, null=True)
+    default_country = CountryField(blank_label='Country *',
+                                   blank=True, null=True)
+
 
 def __str__(self):
         return self.user.username

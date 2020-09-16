@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .forms import ProductAdminForm
-from .models import Product, Category
+from .models import Product
 
 
 def create_product(request):
@@ -65,4 +65,3 @@ def get_product(request, product_id):
     }
 
     return render(request, 'products/get_product.html', context)
-

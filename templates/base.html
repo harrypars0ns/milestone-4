@@ -56,7 +56,7 @@
                         <div class="dropdown-menu border-0">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="" class="dropdown-item">Product Manager</a>
+                                    <a href="{% url 'create_product' %}" class="dropdown-item">Add Product</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -89,7 +89,7 @@
     <section>
         <div class="row">
             <div class="col-12 title-container">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <a href="{% url 'products' %}" class="nav-link main-logo-link">
                     <h2 class="logo-font text-black my-0 title-logo">Whole Apparel</h2>
                 </a>
             </div>
