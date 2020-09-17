@@ -1,22 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-green exo">
-                    Sustainable, fair trade clothing. 
-                </h1>
-                <div class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 col-md-6 col-lg-5 my-auto">
+                <h2 class="logo-font landing-text exo mb-5">
+                    Sustainable. Fair. Trade. Clothing. 
+                </h2>
+                <div class="cta-button">
                         <a href="{% url 'products' %}" class="get-products-button btn btn-lg rounded-0 text-uppercase py-3 exo">Change the World</a>
                 </div>
             </div>
