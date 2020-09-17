@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Continent
+from .models import Category, Product, Continent, SustainableTrait
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -18,6 +18,13 @@ class ContinentAdmin(admin.ModelAdmin):
     )
 
 
+class SustainableTraitAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'description',
+    )
+
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name',
@@ -29,4 +36,5 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Continent, ContinentAdmin)
+admin.site.register(SustainableTrait, SustainableTraitAdmin)
 admin.site.register(Product, ProductAdmin)

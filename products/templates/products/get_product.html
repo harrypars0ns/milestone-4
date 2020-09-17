@@ -20,9 +20,12 @@
       <hr />
       <p>{{ product.description }}</p>
       <br />
-      <p>Made in {{ product.nation_of_origin }}</p>
+      <h5>{{ product.sustainable_trait.name }}</h5>
+      <p>{{ product.sustainable_trait.description }}</p>
       <br />
-      <p>£{{ product.price }}</p>
+      <p>Made in {{ product.nation_of_origin }}, {{ product.continent.name }}</p>
+      <br>
+      <h5>£{{ product.price }}</h5>
       <br />
       <form class="form" method="POST" action="{% url 'add_to_cart' product.id %}">
         {% csrf_token %}

@@ -5,5 +5,5 @@ from .models import Product
 class ProductAdminForm(forms.ModelForm):
     class Meta:
         fields = ('name', 'description', 'category', 'continent',
-                  'nation_of_origin', 'price', 'image',)
+                  'sustainable_trait', 'nation_of_origin', 'price', 'image',)
         model = Product
