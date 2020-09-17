@@ -32,18 +32,18 @@
   <body>
     <header class="container-fluid right my-2">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 px-0">
                 <ul class="list-inline list-unstyled text-center">
-                    <li class="list-inline-item">
-                        <a class="text-black nav-link">
+                    <li class="list-inline-item nav-item">
+                        <a class="text-black nav-link px-2">
                             <div class="text-center">
                                 <div><i class="fas fa-info fa-lg"></i></div>
                                 <p class="my-0">About Us</p>
                             </div>
                         </a>
                     </li>
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="list-inline-item dropdown nav-item">
+                        <a class="text-black nav-link px-2" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 {% if request.user.is_authenticated %}
@@ -67,7 +67,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">     
-                         <a href="{% url 'view_cart' %}" class="nav-link">
+                         <a href="{% url 'view_cart' %}" class="nav-link px-2">
                         <div class="text-center text-black">
                             <div>
                             <i class="fas fas fa-shopping-cart fa-lg"></i></div>
@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-12 title-container">
                 <a href="{% url 'products' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0 title-logo">Whole Apparel</h2>
+                    <h2 class="logo-font text-black title-logo">Whole Apparel</h2>
                 </a>
             </div>
         </div>

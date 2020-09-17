@@ -1,8 +1,6 @@
-{% extends "base.html" %} {% load static %}
-{% block extra_css %}
+{% extends "base.html" %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -13,10 +11,11 @@
       <p>Your order is on the way!</p>
     </div>
   </div>
-  <div class="col-12">
-    <div class="row my-1">
-      <button type="button" class="btn btn-dark">Keep Shopping</button>
-    </div>
-  </div>
+  <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+    <span class="icon">
+      <i class="fas fa-chevron-right"></i>
+    </span>
+    <span class="text-uppercase">Keep Shopping</span>
+  </a>
 </div>
 {% endblock %}

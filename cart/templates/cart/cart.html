@@ -40,7 +40,7 @@
             <div class="col-12 col-md-4">    
                 <input
                     type="submit"
-                    class="edit-products-button btn btn-sm text-uppercase py-2 exo"
+                    class="btn btn-sm btn-outline-dark text-uppercase py-2 exo"
                     value="Update Quantity"
                     ></input>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}"> 
@@ -54,7 +54,6 @@
     <br />
     {% endfor %} {% else %}
     <h5>Your cart is empty would you like to carry on shopping?</h5>
-    <button type="button" class="btn btn-dark">Keep Shopping</button>
     {% endif %}
     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
         <span class="icon">

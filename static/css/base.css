@@ -13,9 +13,10 @@ body {
 
 .title-logo{
     display: inline-block;
-    font-size: 3.6rem;
-}
+    font-size: 2.6rem;
+    margin-bottom: 20px;
 
+}
 
 .logo-font {
     text-transform: uppercase;
@@ -68,25 +69,20 @@ body {
 .edit-products-button {
     background: #c2b280;
     color: black;
-    
-}
 
-.edit-products-button:hover,
-.edit-products-button:active,
-.edit-products-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #cabc91;
-    color: black;
-    border: solid black 1px;;
 }
-
 .checkout-product-image {
     width: 100%;
 }
 
 @media (min-width: 1200px) {
+  .title-logo{
+    display: inline-block;
+    font-size: 3.6rem;
+    margin-bottom: 50px;
+
+}
+  
   .container {
     max-width: 80%;
   }

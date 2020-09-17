@@ -18,11 +18,13 @@
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">
+            {{ product.sustainable_trait.name }}
+            <br>
             ${{ product.price }}
             <br />
             Made in {{ product.nation_of_origin }}
           </p>
-          <a href="{% url 'get_product' product.id %}" class="btn btn-primary">See Item</a>
+          <a href="{% url 'get_product' product.id %}" class="btn btn-outline-dark btn-block">See Item</a>
         </div>
       </div>
     </div>
