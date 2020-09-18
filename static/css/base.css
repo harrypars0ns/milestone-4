@@ -44,8 +44,8 @@ body {
   border: solid black 1px;
 }
 
-.float-right {
-    max-width: 100% !important;
+.about-text{
+    font-size: 1.3rem;
 }
 
 .card-container {

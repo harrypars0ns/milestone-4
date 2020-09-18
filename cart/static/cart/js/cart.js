@@ -1,3 +1,4 @@
+// Function to remove an item from the cart with a button. Sets the quantity to 0 and saves. This is for good UX 
 function removeItem(buttonId){
     let clickOnButton = document.getElementById(buttonId)
     let itemId = clickOnButton.dataset.item_id
@@ -5,12 +6,6 @@ function removeItem(buttonId){
         `input[data-item_id="${itemId}"]`)
     quantityInputElement.value = 0;
     let form = document.querySelector(`form[data-item_id="${itemId}"]`)
-    // if (clickOnButton){
-    //     alert("Got Button")
-    // }if (quantityInputElement){
-    //     alert("Got Input")
-    // }if (form){
-    //     alert("Got Form")
     form.submit()  
 }
 

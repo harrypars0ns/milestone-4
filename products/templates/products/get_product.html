@@ -43,6 +43,7 @@
               required
             />
           </div>
+          <br>
           <div class="col-12">
             <input
               type="submit"
@@ -51,6 +52,9 @@
               ></input>
               <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </div>
+          <br>
+          <br>
+          <br>
           <div class="col-12">
             <a href="{% url 'products' %}" class="btn btn-outline-black       rounded-0 btn-lg">
                 <span class="icon">
@@ -59,6 +63,9 @@
                 <span class="text-uppercase">Keep Shopping</span>
             </a>
           </div>
+          <br>
+          <br>
+          <br>
           <div class="col-12">
             {% if request.user.is_superuser %}
                 <a href="{% url 'edit_product' product.id %}" class="btn 

@@ -1,0 +1,1 @@
+web: gunicorn whole-apparel.wsgi:application

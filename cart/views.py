@@ -1,8 +1,5 @@
 from django.shortcuts import render, redirect, reverse
 
-# Create your views here.
-
-
 def view_cart(request):
     """ A view to return and view the shopping cart """
 
@@ -26,7 +23,7 @@ def add_to_cart(request, item_id):
 
 
 def edit_cart(request, item_id):
-    """ Select a quantity of an item and add it to the cart """
+    """ Select a quantity of an item and edit it in the cart """
 
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
@@ -41,7 +38,7 @@ def edit_cart(request, item_id):
 
 
 def delete_from_cart(request, item_id):
-    """ Select a quantity of an item and add it to the cart """
+    """ Delete an item from the cart by setting it's quantity to 0 """
 
     cart = request.session.get('cart', {})
     del cart[item_id]

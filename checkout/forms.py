@@ -1,6 +1,8 @@
 from django import forms
 from .models import Order
 
+# Checkout form fields
+
 
 class OrderForm(forms.ModelForm):
     class Meta:
@@ -10,8 +12,8 @@ class OrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
+        Make placeholders, delete auto-generated
+        labels and autofocus on the first field
         """
         super().__init__(*args, **kwargs)
         placeholders = {

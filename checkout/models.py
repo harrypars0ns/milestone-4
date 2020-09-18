@@ -41,7 +41,8 @@ class Order(models.Model):
         """
         Update cart_plus_ship each time a line item is added.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = self.lineitems.\
+            aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.cart_plus_ship = self.order_total
         self.save()
 

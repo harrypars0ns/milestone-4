@@ -99,6 +99,8 @@ When I have time, I would like to make: A filtering system on the page that disp
 
 Another great feature to let users set the price range so that  they can view clothes that they can definitely afford.
 
+Using the Google maps API it would be great to have an interactive map that you can view the origins of all of the different clothes.
+
 Scrolling rows where each row is a different category of clothes 	  eg. Hats, Asian, naturally dyed clothes. Similar to a Netflix interface
 
 - Super users would be able to upload their any aspect ratio of their images and it would automatically crop them to a square. Right now you can only upload a square picture while maintaining the organised style of the site. 

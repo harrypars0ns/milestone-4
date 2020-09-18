@@ -1,3 +1,4 @@
+<!-- The page you are directed to after succesfully completing an order -->
 {% extends "base.html" %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
 {% endblock %} {% block content %}
@@ -11,6 +12,7 @@
       <p>Your order is on the way!</p>
     </div>
   </div>
+  <!-- Links back to products -->
   <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
     <span class="icon">
       <i class="fas fa-chevron-right"></i>

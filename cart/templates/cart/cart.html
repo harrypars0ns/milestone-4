@@ -49,7 +49,7 @@
                     value="Update Quantity"
                     ></input>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                <button data-item_id="{{ item.item_id }}"
+                <button class="btn btn-sm btn-outline-dark text-uppercase py-2 exo" data-item_id="{{ item.item_id }}"
                 id="id_remove_{{ item.item_id }}" onclick="removeItem(this.id)">Remove</button>
             </div>
         </div>              
@@ -64,6 +64,7 @@
     <h5>Your cart is empty would you like to carry on shopping?</h5>
     {% endif %}
 <!-- Links to checkout and all products -->
+<div class="col-12"></div>
     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
         <span class="icon">
             <i class="fas fa-chevron-left"></i>

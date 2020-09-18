@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +29,7 @@ SECRET_KEY = 'm$vv$5n30ci3ob)k_5xq4z0mj7@oy$m!++d=8%#)&@mclh)72p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['whole-apparel.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -115,12 +116,21 @@ WSGI_APPLICATION = 'milestone_4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://jhckhgrlpamslm:cb8f130051bdca8d87bb62908fc3d87eae82df15cb0269a4dfb3e73a8f65fbf4@ec2-54-217-213-79.eu-west-1.compute.amazonaws.com:5432/dmeeodkuoi8df')
+# }
 
 
 # Password validation
