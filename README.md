@@ -128,3 +128,61 @@ Stripe
     - The project uses the **Django** a framework for building the app.
 - [Stripe](https://stripe.com/)
     - The project uses the **Stripe** process the payments using a debit or credit card as well as capturing web hooks.
+
+## Testing
+ 
+My first thought when choosing how the user chooses the image for each recipe was to have a text input that they would paste an image URL into. The app would check if it was a .jpg, .jpeg or .png file format and then put it on the card.
+There was a couple issues with this including: some image formats are not jpg, jpeg or png so the app was rejecting perfectly good images, very annoying for the user.
+Another issue was that some image links are 1000 characters long. I decided to go for a super secure system of only allowing an image upload and no way of using a url.
+
+The Stripe payment system initially gave me some problems. The payment intent was being created but the charge wasn’t going through as I could see in my webhooks on the Stripe dashboard. I also got an error from the model. I fixed this by deleting all migrations eg. users, products, categories and orders etc. I removed all migration files within your project. I went through all of my project app’s migration folders and removed everything inside, except the __init__.py file. After making migrations this fixed my problems and the payments were going through.
+
+The forms do have validation, the front end uses html attributes on the inputs such as 'maxlength' and required attributes. The backend validation was done by writing into the views.py that the forms can only be saved once they have been asked IF the form “is_valid” ELSE the form would reset and not submit anything. I tested this by not filling in certain fields and making sure it didn’t submit. They passed all tests.
+
+The nav-bar and brand logo at the top of all pages created some issues on mobile. The nav would only be all in a row on certain screens, and jumbled up on others. This was fixed by a few media queries and changing the html bootstrap classes to remove some padding from one of the nav links. The brand logo also looked bad on some screens and so had to be fixed with some media queries. They both now look good on all screen sizes and so pass my test.
+
+When creating the price input, it started off as a slider that you would select the number of pounds on the cost slider. This turned out to be terrible UX and would be much improved by making the pricing a straight text-box that only allows a number with a maximum of 2 decimal places. This is a much more precise, quicker and user friendly way of setting the price of a product. When you add an item the page used to redirect to the all products page but now goes to the recipe you have just created or edited. Once saved the pages redirect to where they are meant to and so pass my tests.
+
+Only superusers are allowed to use the remove, edit and create product features I did this my making sure that the user “is_superuser” and displaying the links to those pages if that is TRUE. If they are not a superuser they do not see these links and so would have no way to create, edit or remove a product from the store. I tested this by logging out and trying as an anonymous user, a non ‘super’ user and as a superuser. The links only showed for the super user and so it passes my tests.
+
+When deleting an order through the admin I was getting an error. It was a simple fix by adding an “or 0” to the end of a line of code that would update the total of all line items. This now works fine and so passed my test. 
+
+Images on the cards were all different sizes and so messed up the organisation on the all products page. All images are cropped to the same aspect ratio (a square) so the cards are all the same size and look the same on all screens.
+
+I had a problem where I would have to set the environment variables every time that I opened the workspace in GitPod. I fixed this by creating a gitignore file with a file (env.py) that contained my environment variables and then I set them in the project level settings.py file. I no longer need to export environment variables manually and so it passed my test.
+  
+I ran the CSS and HTML through the W3C Jigsaw validator with no errors found. The Javascript was run through the JSHint validator with no major issues. The Python was ran through a validator with no issues as well as checked with pep8online.com.
+
+The site works across many browsers including: Chrome, Firefox, Safari and Edge.
+
+## Deployment
+
+I am hosting the site on Heroku on the master branch. I had a already been committing to GitHub before.
+
+I have my git repository hosted on Github and the website is hosted on Heroku. I have commits after I've finished a feature or fixed a bug. When I use git push the Github repository is updated and I use git push heroku master to push the updates to Heroku.
+
+To deploy on Heroku you have to:
+Create an app on the main page of your Heroku dash.
+Go to settings, press 'reveal config vars' I used IP (0.0.0.0), PORT (5000), Secret Key
+Gitpod has Heroku already installed so just use 'heroku login' in your terminal.
+Add a requirements.txt with 'pip3 freeze > requirements.txt'.
+Add a Procfile with 'echo web: python app.py > Procfile'.
+
+If you want to run the code locally you can use 'git clone'. Alternatively you 
+can download all the files in a .zip file and open 'index.html' in your browser of choice.
+
+## Credits
+
+### Content
+
+I made the layout, buttons and cards using Bootstrap. The forms used crispy forms.
+Authorisation was made with Django AllAuth.
+The checkout and stripe payment were made using the same system from the Boutique Ado mini project. 
+
+### Media
+I used Pexels (stock images) for my images, and font awesome for my icons.
+
+### Acknowledgements
+
+- Thanks to Brian Macharia for all the help he's given me making this. Couldn't have done it without you.
+- Thanks to the whole tutor team from CodeInstitute for help with my project.
