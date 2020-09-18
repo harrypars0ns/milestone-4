@@ -2,9 +2,11 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+# Cart contexts: loop through cart items & 
+# multiply their item quantity by price
+
 
 def cart_contents(request):
-
     cart_items = []
     total = 0
     product_count = 0

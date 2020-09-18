@@ -1,3 +1,4 @@
+/* Some styles for stripe elements used by the Boutique Ado mini project */
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -10,48 +11,41 @@
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
 }
-
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
   box-shadow: 0 1px 3px 0 #cfd7df;
 }
-
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
-
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+  color: #aab7c4;
 }
-
 .fieldset-label {
-    position: relative;
-    right: .5rem;
+  position: relative;
+  right: 0.5rem;
 }
-
 #payment-form .form-control,
 #card-element {
-    color: #000;
-    border: 1px solid #000;
+  color: #000;
+  border: 1px solid #000;
 }
-
 select,
-select option{
-    color: #000;
+select option {
+  color: #000;
 }
-
 select:invalid,
-select option[value=""]{
-    color: #aab4c1 !important; 
+select option[value=""] {
+  color: #aab4c1 !important;
 }
-
+/* Image */
 .checkout-product-image {
-    width: 100%;
+  width: 100%;
 }
-
+/* Media Queries */
 @media (max-width: 900px) {
   .checkout-product-image {
     width: 100%;
-}
+  }
 }

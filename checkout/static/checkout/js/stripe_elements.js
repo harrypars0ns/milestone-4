@@ -1,3 +1,4 @@
+// Get the keys and secrets and slice of the '' and add a bit of styling
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
@@ -17,10 +18,11 @@ var style = {
         iconColor: '#dc3545'
     }
 };
+// Create cards
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-// Handle realtime validation errors on the card element
+// Handle validation errors on the card
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -36,7 +38,7 @@ card.addEventListener('change', function (event) {
     }
 });
 
-// Handle form submit
+// Handle submit
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
@@ -52,7 +54,7 @@ form.addEventListener('submit', function(ev) {
         'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
-
+// Billing and Shipping details
     $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -80,6 +82,7 @@ form.addEventListener('submit', function(ev) {
                     postal_code: $.trim(form.postcode.value),
                 }    
             },
+// Show errors in the form
         }).then(function(result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');

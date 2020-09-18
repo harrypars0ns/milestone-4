@@ -36,7 +36,6 @@ def edit_cart(request, item_id):
     else:
         del cart[item_id]
 
-
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
