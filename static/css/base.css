@@ -44,6 +44,10 @@ body {
   border: solid black 1px;
 }
 
+.float-right {
+    max-width: 100% !important;
+}
+
 .card-container {
   text-align: center;
 }
