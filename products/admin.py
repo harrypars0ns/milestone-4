@@ -5,7 +5,6 @@ from .models import Category, Product, Continent, SustainableTrait
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'readable_name',
 
     )
 
@@ -13,7 +12,6 @@ class CategoryAdmin(admin.ModelAdmin):
 class ContinentAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'readable_name',
 
     )
 
