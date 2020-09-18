@@ -1,1 +1,1 @@
-web: gunicorn whole-apparel.wsgi:application
+web: gunicorn milestone-4.wsgi:application
