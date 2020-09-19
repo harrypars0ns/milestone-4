@@ -10,6 +10,7 @@
 - Technologies Used
 - Testing and Validation
 - Deployment
+- User Stories
 - Credits
 - Acknowledgements
 
@@ -172,6 +173,31 @@ Add a Procfile with 'echo web: python app.py > Procfile'.
 
 If you want to run the code locally you can use 'git clone'. Alternatively you 
 can download all the files in a .zip file and open 'index.html' in your browser of choice.
+
+## User Stories
+
+1. As someone who knows nothing about low-impact clothing I want to know why I should buy a piece of low impact clothing make my decision and buy it.
+
+2. As somebody who did’t know fast fashion was a problem I want to use the website to learn about why I should be buying sustainable clothes so that I am a smaller cost on the planet.
+
+3. As a regular customer of Whole Apparel I want my details to be saved when I checkout so that I don’t have to enter them every time.
+
+4. As somebody with a mobile phone I want this to be intuitive on small screens so that I can easily use the website.
+
+5. As a store owner who is not tech savvy I want to be able to add a new product to the database without having to change the code or use the Django admin. So that I can easily add products to my site.
+
+6. As a store owner who is not tech savvy I want to be able to edit a product’s information in the database without having to change the code or use the Django admin. So that I can easily edit product’s info on my site.
+
+7. As somebody with bad eyesight I want to be able to read all text on the screen easily so that I know whether I should buy something.
+
+8. As a superuser I expect that when I edit an item info, I only have to edit the one field that needs updating so I don't have to fill out the whole form.
+
+9. As a superuser entering a new product I expect the form to remind me to fill in all fields before submitting, so that I dont insert an incomplete item into the database.
+
+10. As someone with dyslexia I expect I will be able to read everything on screen.
+
+Full list of user stories in userstories.txt.
+
 
 ## Credits
 

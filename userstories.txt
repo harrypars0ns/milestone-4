@@ -1,0 +1,47 @@
+User Stories
+
+As someone who knows nothing about low-impact clothing I want to know why I should buy a piece of low impact clothing make my decision and buy it.
+
+As someone who knows nothing about chemical free clothing I want to know why I should buy a piece of chemical free clothing make my decision and buy it.
+
+As a Vegan I want to be able to see clearly which clothes on the site match my values so that I don't spend long periods of time looking through non-vegan clothes.
+
+As somebody who did’t know fast fashion was a problem I want to use the website to learn about why I should be buying sustainable clothes so that I am a smaller cost on the planet.
+
+As somebody who knows a lot about sustainable clothing I want to be impressed by the range of different sustainable traits that the clothes have to offer so that I have a lot to choose from.
+
+As a regular customer of Whole Apparel I want my details to be saved when I checkout so that I don’t have to enter them every time.
+
+As somebody with who values unique clothes I want to be able to find and buy locally made clothes in as few clicks as possible.
+
+As somebody with a mobile phone I want this to be intuitive on small screens so that I can easily use the website.
+
+As somebody with a tablet I want this to be intuitive on medium screens so that I can easily use the website.
+
+As somebody with a large screen computer I want this to be intuitive on large screens so that I can easily use the website.
+
+As somebody buying a gift for friends that like sustainable clothing I want to see clearly which sustainable trait each item has so I can pick the right item for them.
+
+As a store owner who is not tech savvy I want to be able to add a new product to the database without having to change the code or use the Django admin. So that I can easily add products to my site.
+
+As a store owner who is not tech savvy I want to be able to edit a product’s information in the database without having to change the code or use the Django admin. So that I can easily edit product’s info on my site.
+
+As a store owner who is not tech savvy I want to be able to delete a product from the database without having to change the code or use the Django admin. So that I can easily delete products on my site.
+
+As somebody with bad eyesight I want to be able to read all text on the screen easily so that I know whether I should buy something.
+
+As a superuser I expect that when I edit an item info, I only have to edit the one field that needs updating so I don't have to fill out the whole form.
+
+As a user I expect the site to function with no lag or fault in the way the site runs. 
+
+As a superuser entering a new product I expect the form to remind me to fill in all fields before submitting, so that I dont insert an incomplete item into the database.
+
+As a store owner who likes to reset the price often, I want to be able to edit the price to what I think is best.
+
+As somebody with bad eye-sight who has trouble looking at screens I expect the recipes to be easily printable. 
+
+As someone with dyslexia I expect I will be able to read everything on screen.
+
+As a user I expect to be able to share the URL link of a product with a friend.
+
+As a user I expect to be notified if one of the form fields is not filled in correctly and given the chance to correct the error.
