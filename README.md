@@ -174,7 +174,7 @@ The site works across many browsers including: Chrome, Firefox, Safari and Edge.
 
 I am hosting the site on Heroku on the master branch. I had a already been committing to GitHub before.
 
-I have had huge issues when deploying this project. Heroku will not send the image files you choose on a new product to the AWS S3 media and static hosting platform. When run locally this feature works fine but when using the deployed site through Heroku your images will not load.
+I have had huge issues when deploying this project. **Heroku will not send the image files you choose on a new product to the AWS S3 media and static hosting platform**. When run locally this feature works fine but when using the deployed site through Heroku your images **will not load**.
 
 I used the AWS S3 service to host my static and media files as Heroku does not support these. This was done by creating a bucket in AWS and linking it with a policy and creating static user to . 
 
