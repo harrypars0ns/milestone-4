@@ -1,3 +1,4 @@
+/* Stripe element css */
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -35,7 +36,7 @@
     color: #000;
     border: 1px solid #000;
 }
-
+/* Selecter css */
 select,
 select option{
     color: #000;
@@ -45,11 +46,11 @@ select:invalid,
 select option[value=""]{
     color: #aab4c1 !important; 
 }
-
+/* Image for the checkout */
 .checkout-product-image {
     width: 100%;
 }
-
+/* Media Queries */
 @media (max-width: 900px) {
   .checkout-product-image {
     width: 100%;

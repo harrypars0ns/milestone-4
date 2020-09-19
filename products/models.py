@@ -1,5 +1,7 @@
 from django.db import models
 
+# Continent Model
+
 
 class Continent(models.Model):
 
@@ -13,6 +15,8 @@ class Continent(models.Model):
 
     def __str__(self):
         return self.name
+
+# Category Model
 
 
 class Category(models.Model):
@@ -28,6 +32,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+# Sustainable Trait Model
+
 
 class SustainableTrait(models.Model):
 
@@ -41,6 +47,8 @@ class SustainableTrait(models.Model):
 
     def __str__(self):
         return self.name
+
+# Product Model
 
 
 class Product(models.Model):

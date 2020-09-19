@@ -5,17 +5,18 @@
   </div>
 </div>
 {% endblock %} {% block content %}
+<!-- HTML for an individual product -->
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-6">
+    <section class="col-sm-12 col-md-6">
       <img
         class="get-product-image"
         src="{{ product.image.url }}"
         alt="{{ product.name }}"
       />
-    </div>
+    </section>
     <div class="col-md-1"></div>
-    <div class="col-sm-12 col-md-5">
+    <section class="col-sm-12 col-md-5">
       <h2>{{ product.name }}</h2>
       <hr />
       <p>{{ product.description }}</p>
@@ -28,6 +29,7 @@
       <h5>£{{ product.price }}</h5>
       <br />
       <form class="form" method="POST" action="{% url 'add_to_cart' product.id %}">
+<!-- Quantity input -->
         {% csrf_token %}
         <div class="addcart_form row">
           <div class="col-8 row mx-1 input-group">
@@ -44,17 +46,19 @@
             />
           </div>
           <br>
+<!-- Add to cart button -->
           <div class="col-12">
             <input
               type="submit"
               class="btn btn-outline-black rounded-0 btn-lg"
               value="Add to Cart"
-              ></input>
+              >
               <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </div>
           <br>
           <br>
           <br>
+<!-- Links back to products -->
           <div class="col-12">
             <a href="{% url 'products' %}" class="btn btn-outline-black       rounded-0 btn-lg">
                 <span class="icon">
@@ -67,6 +71,7 @@
           <br>
           <br>
           <div class="col-12">
+<!-- Edit and delete links for superusers -->
             {% if request.user.is_superuser %}
                 <a href="{% url 'edit_product' product.id %}" class="btn 
                             btn-outline-black rounded-0 btn-lg">
@@ -86,7 +91,7 @@
           </div>
         </div>
       </form>
-    </div>
+    </section>
   </div>
   <div class="footer-spacer my-3"></div>
 </div>

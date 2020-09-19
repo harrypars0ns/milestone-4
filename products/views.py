@@ -4,6 +4,7 @@ from .models import Product
 
 
 def create_product(request):
+    """A view to create a product"""
     if request.method == 'POST':
         product_admin_form = ProductAdminForm(request.POST, request.FILES)
         if product_admin_form.is_valid:
@@ -20,6 +21,7 @@ def create_product(request):
 
 
 def edit_product(request, product_id):
+    """A view to Edit a product"""
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         product_admin_form = ProductAdminForm(request.POST,
@@ -39,6 +41,7 @@ def edit_product(request, product_id):
 
 
 def remove_product(request, product_id):
+    """A view to delete a product"""
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     return redirect(reverse('products'))

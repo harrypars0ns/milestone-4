@@ -24,7 +24,7 @@ class UserProfile(models.Model):
 
 
 def __str__(self):
-        return self.user.username
+    return self.user.username
 
 
 @receiver(post_save, sender=User)

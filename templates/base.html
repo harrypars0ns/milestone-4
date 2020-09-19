@@ -30,17 +30,20 @@
     <title>Whole Apparel</title>
   </head>
   <body>
+<!-- Navbar -->
     <header class="container-fluid right my-2">
         <div class="row">
             <div class="col-12 px-0">
                 <ul class="list-inline list-unstyled text-center">
                     <li class="list-inline-item nav-item">
+                    <!-- About us link -->
                         <a href="{% url 'about' %}" class="text-black nav-link px-2">
                             <div class="text-center">
                                 <div><i class="fas fa-info fa-lg"></i><p class="my-0">About Us</p></div>
                             </div>
                         </a>
                     </li>
+                    <!-- If user is logged display the username -->
                     <li class="list-inline-item dropdown nav-item">
                         <a class="text-black nav-link px-2" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
@@ -52,6 +55,7 @@
                                 {% endif %}    
                             </div>
                         </a>
+                        <!-- Superusers can add product here -->
                         <div class="dropdown-menu border-0">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
@@ -65,6 +69,7 @@
                             {% endif %}
                         </div>
                     </li>
+                    <!-- Cart link -->
                     <li class="list-inline-item">     
                          <a href="{% url 'view_cart' %}" class="nav-link px-2">
                         <div class="text-center text-black">
@@ -85,11 +90,11 @@
         </div>
         <section>
         <div class="row">
-            <div class="col-12 title-container">
+            <section class="col-12 title-container">
                 <a href="{% url 'products' %}" class="main-logo-link">
                     <h2 class="logo-font text-black title-logo">Whole Apparel</h2>
                 </a>
-            </div>
+            </section>
         </div>
     </section>
     </header>

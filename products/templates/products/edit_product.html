@@ -7,16 +7,16 @@
  <!--Edit a products information.  -->
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-6">
+    <header class="col-12 col-md-6">
       <hr />
       <h2 class="logo-font">Product Manager</h2>
       <h5 class="text-muted">Edit a Product</h5>
       <hr />
-    </div>
+    </header>
   </div>
 <!-- Form with fields from Product Model rendered in Crispy -->
   <div class="row">
-    <div class="col-12 col-md-6">
+    <section class="col-12 col-md-6">
       <form
         method="POST"
         action="{% url 'edit_product' product.id %}"
@@ -43,7 +43,7 @@
           </button>
         </div>
       </form>
-    </div>
+    </section>
   </div>
 </div>
 {% endblock %}

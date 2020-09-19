@@ -5,7 +5,7 @@
 {% endblock %}
 <!-- Checkout form -->
 <div class="container">
-  <div class="row">
+  <header class="row">
     <div class="col-12">
       <h2>Checkout</h2>
       <hr />
@@ -13,9 +13,9 @@
     <div class="col-12">
       <p>Please fill out your details below</p>
     </div>
-  </div>
+  </header>
   <div class="row">
-    <div class="col-12 col-md-5 order-lg-last mb-5">
+    <section class="col-12 col-md-5 order-lg-last mb-5">
 <!-- Loop through items in cart and display them with information -->
       {% for item in cart_items %}
       <h4>{{ item.product.name }}</h4>
@@ -46,9 +46,9 @@
                 <p class="my-0">£{{ total | floatformat:2 }}</p>
             </div>
         </div>
-    </div>
+    </section>
 <!-- Checkout form, for entering user info and card details -->
-    <div class="col-12 col-md-7">
+    <section class="col-12 col-md-7">
       <form action="{% url 'checkout' %}" method="POST" id="payment-form">
         {% csrf_token %}
         <fieldset class="rounded px-3 mb-5">
@@ -131,7 +131,7 @@
           </p>
         </div>
       </form>
-    </div>
+    </section>
   </div>
 </div>
 {% endblock %}

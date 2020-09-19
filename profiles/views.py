@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
 from .forms import ProfileForm
 
+
 def profile(request):
     """ Show a user profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
