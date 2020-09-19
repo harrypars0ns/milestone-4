@@ -10,13 +10,14 @@
 - Technologies Used
 - Testing and Validation
 - Deployment
+- Version Control
 - User Stories
 - Credits
 - Acknowledgements
 
 ## Demo
 
-A live demo of the website can be found [here](https://a-recipe-book.herokuapp.com/).
+A live demo of the website can be found [here](https://whole-apparel.herokuapp.com/).
 
 
 ## General Information
@@ -60,20 +61,24 @@ The site is very intuitive so nobody will have trouble accessing all the feature
 
 ### Skeleton
 
-NEEDS CHANGING WITH CORRECT WIREFRAMES
-[Wireframe plan 1 - Add/Edit Recipe Form]  (https://github.com/harrypars0ns/a-recipe-book/blob/master/Wireframes/addeditrecipe.jpg)
-NEEDS CHANGING WITH CORRECT WIREFRAMES
+[Wireframe plan 1 - All Products]  (https://github.com/harrypars0ns/milestone-4/blob/master/wireframes/all-products-wireframe.jpg)
 
-[Wireframe plan 2 - Read Recipe Page]  (https://github.com/harrypars0ns/a-recipe-book/blob/master/Wireframes/readrecipe.jpg)
-NEEDS CHANGING WITH CORRECT WIREFRAMES><><><><><><><><><
-<<>.>><_%£$625628y3498y459857y9825y9827y59
-[Wireframe plan 2 - Main Recipes Page]  (https://github.com/harrypars0ns/a-recipe-book/blob/master/Wireframes/recipes.jpg)
+[Wireframe plan 2 - Get Product]  (https://github.com/harrypars0ns/milestone-4/blob/master/wireframes/get-product-wireframe.jpg)
+
+[Wireframe plan 3 - Cart Page]  (https://github.com/harrypars0ns/milestone-4/blob/master/wireframes/cart-wireframe.jpg)
+
+[Wireframe plan 4 - Checkout Page]  (https://github.com/harrypars0ns/milestone-4/blob/master/wireframes/checkout-wireframe.jpg)
+
+[Wireframe plan 5 - Add/Edit Product Page]  (https://github.com/harrypars0ns/milestone-4/blob/master/wireframes/add-edit-product-wireframe.jpg)
+
+[Wireframe plan 3 - About Page]  (https://github.com/harrypars0ns/milestone-4/blob/master/wireframes/about-us-wireframe.jpg)
+
 
 ### Surface
 
 I want my users to be able to look at the clothes displayed in front of them and have absolutely no trouble reading all the information. I don’t want anything to look overloaded with too many items, so plenty of space between items. I chose a plain white background on the site to emphasise a minimalist feel that plays into the “low-impact” branding of Whole Apparel. The simple black text is simple but still looks striking and professional. The most important thing is that the website is nice to look at for everyone including people with bad eye-sight, people with dyslexia and the elderly.
 
-I chose to display the recipes on Bootstrap cards as the high quality image really elicits a positive emotional reaction.
+I chose to display the clothes on Bootstrap cards as the high quality image really elicits a positive emotional reaction.
 The font sizes have been set to the biggest and most legible they can without sacrificing the usability and aesthetic of the website.
 
 The forms use Crispy Forms which are a nice way of getting quick aesthetically pleasing forms used throughout the site.
@@ -82,7 +87,7 @@ The forms use Crispy Forms which are a nice way of getting quick aesthetically p
 
 The cards are generated on beautiful Bootstrap cards which is a simple but visually effective way of displaying my products.
 
-The app has a few basic functions, to allow you to: display, create, view, update and delete individual products. You are able to add a chosen quantity products to your cart, edit that within the cart view and then checkout using Stripe.  You are able to create a profile using your own info and edit that information whenever you may need to. This info is saved and inserted automatically in the checkout form. 
+The app has a few basic functions, to allow you to: display, create, view, update and delete individual products. You are able to add a chosen quantity products to your cart, edit that within the cart view and then checkout using Stripe. You are able to create a profile using your own info and edit that information whenever you may need to. This info is saved and inserted automatically in the checkout form. 
 
 When adding new products the form fields contain: the item name, description, type of clothing, cost, nation of origin, the key sustainable trait that it might have (vegan, low-impact, chemical free, naturally dyed etc.) and an image field for uploading and displaying the product.
 
@@ -95,6 +100,8 @@ The forms do have validation, the front end uses html attributes on the inputs s
 The product’s individual pages are laid out simply to make them very easily printable. 
 
 ### Features Left to Implement
+
+Heroku will not send the image files you choose on a new product to the AWS S3 media and static hosting platform. When run locally this feature works fine but when using the deployed site through Heroku your images will not load. This is a MUST if this project is to go live
 
 When I have time, I would like to make: A filtering system on the page that displays all the products so that you can choose to only view certain types of clothes, whether that be a certain category, nation of origin or sustainable trait that you only want to see clothes from. We only have a few products so far so this isn’t necessary right now.
 
@@ -134,9 +141,11 @@ Stripe
 
 ## Testing
  
-My first thought when choosing how the user chooses the image for each recipe was to have a text input that they would paste an image URL into. The app would check if it was a .jpg, .jpeg or .png file format and then put it on the card.
+My first thought when choosing how the user chooses the image for each item was to have a text input that they would paste an image URL into. The app would check if it was a .jpg, .jpeg or .png file format and then put it on the card.
 There was a couple issues with this including: some image formats are not jpg, jpeg or png so the app was rejecting perfectly good images, very annoying for the user.
 Another issue was that some image links are 1000 characters long. I decided to go for a super secure system of only allowing an image upload and no way of using a url.
+
+You can NOT upload a new image through the deployed site on Heroku, AWS hosts the images that are on the site already so you must upload imgages there if you want them to display properly. If using the local version there is no problem uploading new images.
 
 The Stripe payment system initially gave me some problems. The payment intent was being created but the charge wasn’t going through as I could see in my webhooks on the Stripe dashboard. I also got an error from the model. I fixed this by deleting all migrations eg. users, products, categories and orders etc. I removed all migration files within your project. I went through all of my project app’s migration folders and removed everything inside, except the __init__.py file. After making migrations this fixed my problems and the payments were going through.
 
@@ -144,7 +153,8 @@ The forms do have validation, the front end uses html attributes on the inputs s
 
 The nav-bar and brand logo at the top of all pages created some issues on mobile. The nav would only be all in a row on certain screens, and jumbled up on others. This was fixed by a few media queries and changing the html bootstrap classes to remove some padding from one of the nav links. The brand logo also looked bad on some screens and so had to be fixed with some media queries. They both now look good on all screen sizes and so pass my test.
 
-When creating the price input, it started off as a slider that you would select the number of pounds on the cost slider. This turned out to be terrible UX and would be much improved by making the pricing a straight text-box that only allows a number with a maximum of 2 decimal places. This is a much more precise, quicker and user friendly way of setting the price of a product. When you add an item the page used to redirect to the all products page but now goes to the recipe you have just created or edited. Once saved the pages redirect to where they are meant to and so pass my tests.
+When creating the price input, it started off as a slider that you would select the number of pounds on the cost slider. This turned out to be terrible UX and would be much improved by making the pricing a straight text-box that only allows a number with a maximum of 2 decimal places. This is a much more precise, quicker and user friendly way of setting the price of a product.
+When you add an item, the page used to redirect to the all products page but now goes to the product you have just created or edited. Once saved the pages redirect to where they are meant to and so pass my tests.
 
 Only superusers are allowed to use the remove, edit and create product features I did this my making sure that the user “is_superuser” and displaying the links to those pages if that is TRUE. If they are not a superuser they do not see these links and so would have no way to create, edit or remove a product from the store. I tested this by logging out and trying as an anonymous user, a non ‘super’ user and as a superuser. The links only showed for the super user and so it passes my tests.
 
@@ -154,15 +164,23 @@ Images on the cards were all different sizes and so messed up the organisation o
 
 I had a problem where I would have to set the environment variables every time that I opened the workspace in GitPod. I fixed this by creating a gitignore file with a file (env.py) that contained my environment variables and then I set them in the project level settings.py file. I no longer need to export environment variables manually and so it passed my test.
   
-I ran the CSS and HTML through the W3C Jigsaw validator with no errors found. The Javascript was run through the JSHint validator with no major issues. The Python was ran through a validator with no issues as well as checked with pep8online.com.
+I ran the CSS and HTML through the W3C Jigsaw validator with no errors found. The Javascript was run through the JSHint validator with no major issues. The Python was ran through a validator and all issues that could be fixed and didn't break the code were fixed. Checked to be styled like pep8online.com.
 
 The site works across many browsers including: Chrome, Firefox, Safari and Edge.
 
 ## Deployment
 
+- My site can be found [here](https://whole-apparel.herokuapp.com/).
+
 I am hosting the site on Heroku on the master branch. I had a already been committing to GitHub before.
 
+I have had huge issues when deploying this project. Heroku will not send the image files you choose on a new product to the AWS S3 media and static hosting platform. When run locally this feature works fine but when using the deployed site through Heroku your images will not load.
+
+I used the AWS S3 service to host my static and media files as Heroku does not support these. This was done by creating a bucket in AWS and linking it with a policy and creating static user to . 
+
 I have my git repository hosted on Github and the website is hosted on Heroku. I have commits after I've finished a feature or fixed a bug. When I use git push the Github repository is updated and I use git push heroku master to push the updates to Heroku.
+
+The best way to deploy is to link it to your GitHub repo. In the deploy tab in Heroku, under 'Deployment' select github and choose your repo. Then you can set it to automatically depoly every time you use git push.
 
 To deploy on Heroku you have to:
 Create an app on the main page of your Heroku dash.
@@ -171,8 +189,27 @@ Gitpod has Heroku already installed so just use 'heroku login' in your terminal.
 Add a requirements.txt with 'pip3 freeze > requirements.txt'.
 Add a Procfile with 'echo web: python app.py > Procfile'.
 
+You must have these environment vars set:
+
+| Key | Value |
+--- | ---
+AWS_ACCESS_KEY_ID | `<secret key>`
+AWS_SECRET_ACCESS_KEY | `<secret key>`
+DATABASE_URL | `<postgres database url>`
+EMAIL_HOST_PASS | `<secret key>`
+EMAIL_HOST_USER | `<Email address that customers recieve from>`
+SECRET_KEY | `<your secret key>`
+STRIPE_PUBLIC_KEY | `<public key>`
+STRIPE_SECRET_KEY | `<secret key>`
+STRIPE_WH_SECRET | `<secret key>`
+USE_AWS | `<True>`
+
 If you want to run the code locally you can use 'git clone'. Alternatively you 
 can download all the files in a .zip file and open 'index.html' in your browser of choice.
+
+## Version Control
+
+I managed version control with GitHub. I mainly used the master branch but I did make a seperate branch at one point to do some testing without editing the master code.
 
 ## User Stories
 
