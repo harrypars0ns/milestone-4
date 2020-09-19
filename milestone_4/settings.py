@@ -181,7 +181,7 @@ if 'USE_AWS' in os.environ:
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
     # Media and Static files
-    STATICFILE_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
     DEFAULT_FILES_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = 'media'
